@@ -1,14 +1,15 @@
-int[][] points =  new int[3][2];
+int sides = 3;
+int[][] points =  new int[sides][2];
 int[] cursor = new int[2];
 void setup() {
-  size(700, 700);
+  size(400, 400);
   background(255);
-  frameRate(5000);
+  frameRate(50000);
 
-   for(int i = 0; i < 4; i++){
+   for(int i = 0; i < sides + 1; i++){
      int x = (int) random(0, width);
      int y = (int) random(0, height);
-     if(i < 3){
+     if(i < sides){
        int [] p = {x, y};
        points[i] = p;
      } else {
@@ -20,7 +21,8 @@ void setup() {
 }
 
 void draw() {
-  int whichPoint = (int) random(0, 3);
+  println(frameRate);
+  int whichPoint = (int) random(0, sides);
   int x1 = points[whichPoint][0];
   int x2 = cursor[0];
   int y1 = points[whichPoint][1];
